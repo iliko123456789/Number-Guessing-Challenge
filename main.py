@@ -1,37 +1,36 @@
-import time
-import random
+def add(x, y):
+    return x + y
 
-start_time = time.time()
-secret_number = random.randint(0,100)
-user_num = int(input("Guess a number between 0 and 100:"))
+def subtract(x, y):
+    return x - y
 
-attempts = 1
+def multiply(x, y):
+    return x * y
 
-while user_num != secret_number:
-    if user_num > secret_number:
-        print("Too high! Try a smaller number.")
-    elif user_num < secret_number:
-        print("Too low! Try a larger number.")
-    user_num = int(input("Enter number"))
-    attempts += 1
-end_time = time.time()
-result_time = int(end_time - start_time)
-print(f"You gussed the number in {attempts} attempts! it took you {result_time} second")
+def divide(x, y):
+    if y == 0:
+        return "error"
+    else:
+        return x / y
+def calculator():
+    print("Select operation:")
+    print("1. Add")
+    print("2. Subtract")
+    print("3. Multiply")
+    print("4. Divide")
 
-
-
-
-
-#print("start of delay")
-#time.sleep(5)
-#print("end of delay")
-
-
-
-
-
-#current_seconds = time.time()
-#print(current_seconds)
-
-#readeble_time = time.ctime(current_seconds)
-#print(readeble_time)
+    choice = input("Enter choice (1/2/3/4): ")
+    num_1 = float(input("enter first number: "))
+    num_2 = float(input("enter second number: "))
+    
+    if choice == "1":
+        print("Result:", add(num_1, num_2))
+    elif choice == "2":
+        print("Result:", subtract(num_1, num_2))
+    elif choice == "3":
+        print("Result:", multiply(num_1, num_2))
+    elif choice == "4":
+        print("Result:", divide(num_1, num_2))
+    else:
+        print("invalid input")
+calculator()
